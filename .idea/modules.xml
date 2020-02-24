@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/MovieSearcher.iml" filepath="$PROJECT_DIR$/.idea/MovieSearcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OneEsPlatform/.idea/OneEsPlatform.iml" filepath="$PROJECT_DIR$/../OneEsPlatform/.idea/OneEsPlatform.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} MovieSearcher - Home {% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <link rel="stylesheet" href="{% static 'Movies/fontawesome/web-fonts-with-css/css/fontawesome-all.css' %}" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'Movies/style.css' %}">
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-static-top">
+        <a class="navbar-brand" href="{% url 'Movies:index' %}">MovieSearcher</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#topNavBar" aria-controls="topNavBar"
+                aria-expanded="false" aria-label="Toggle navigation" >
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="topNavBar">
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'Movies:index' %}">
+              <i class="far fa-id-card">&nbsp; Actors &nbsp;</i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'Movies:index' %}">
+              <i class="fas fa-film">&nbsp; Movies &nbsp;</i>
+            </a>
+          </li>
+        </ul>
+
+        <form class="form-inline" action="/action_page.php">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-success" type="submit">Search</button>
+        </form>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'Movies:movie-add' %}">
+              <i class="fas fa-plus-square">&nbsp; Add movie &nbsp;</i>
+            </a>
+          </li>
+          <li class="nav-item">
+              {% if not user.is_authenticated %}
+              <a class="nav-link text-white" href="{% url 'Movies:login' %}">
+                  <i class="fas fa-sign-in-alt">&nbsp; Login &nbsp;</i>
+              </a>
+              {% else %}
+              <a class="nav-link text-white" href="{% url 'Movies:logout' %}">
+                  <i class="fas fa-sign-out-alt">&nbsp; Logout &nbsp;</i>
+              </a>
+              {% endif %}
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+    <br>
+</header>
+
+{% block body%}
+{% endblock %}
+
+</body>
+</html>

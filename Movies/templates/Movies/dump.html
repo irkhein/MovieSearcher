@@ -1,0 +1,40 @@
+<!-- <link rel="stylesheet" href="{% static 'Movies/lib/bootstrap/dist/css/bootstrap.min.css' %}" /> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="{% static 'Movies/style.css' %}"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- <script src="{% static 'Movies/lib/jquery/dist/jquery.min.js' %}"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- <script src="{% static 'Movies/lib/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script> -->
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- logo -->
+    <a class="navbar-brand" style="font-family: 'Lobster', serif;" href="{% url 'Movies:index' %}">MovieSearcher</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#topNavBar" aria-controls="topNavBar"
+            aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="topNavBar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'Movies:index' %}">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Actors &nbsp;
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'Movies:index' %}">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Movies &nbsp;
+                </a>
+            </li>
+        </ul>
+
+        <form class="form-inline" role="search" method="get" action="#">
+            <input type="text" class="form-control mr-sm-2" name="q" value="" placeholder="Search">
+            <button type="submit" class="btn btn-success">Search</button>
+        </form>
+
+    </div>
+
+</nav><br>

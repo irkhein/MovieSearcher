@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieSearcher</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Movies/lib/bootstrap/dist/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'Movies/style.css' %}"/>
+</head>
+<body>
+    <header>
+        <!--<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">-->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" href="#">MovieSearcher</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        {% if all_movies %}
+        <ul>
+            {% for movie in all_movies %}
+            <li> <a href="{% url 'Movies:movie' movie.id %}"> {{ movie.name }} </a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <h2>No movies are in the database...</h2>
+        {% endif %}
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2019 - MovieSearcher - <a href="#">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="{% static 'Movies/lib/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'Movies/lib/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!--<script>
+        $(document).ready(function () {
+            $("sidebarCollapse").click(function () {
+                $("sidebar").toggleClass("active");
+            });
+        });</script>-->
+
+</body>
+</html>

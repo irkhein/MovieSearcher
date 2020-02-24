@@ -1,0 +1,30 @@
+{% extends 'Movies/base.html' %}
+{% load static %}
+
+{% block title %} Person list {% endblock %}
+
+{% block body %}
+
+{% if error_message %}
+<p><strong> {{ error_message }} </strong></p>
+{% endif %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            {% for person in person_list %}
+            <div class="card flex-row flex-wrap">
+                <div class="card-header border-0">
+                    <img style="height:5rem; width:3.5rem;" src="{{ person.person.person_picture.url }}" alt="">
+                </div>
+                <div class="card-block px-2 py-2">
+                    <h6 class="card-text"><a href="{% url 'Movies:person' person.person.pk %}">{{ person.person.name }}</a></h6>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock%}
